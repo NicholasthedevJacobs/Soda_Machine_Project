@@ -12,7 +12,11 @@ namespace SodaMachineProject
         {
             // SodaMachine user = new SodaMachine();
 
-            UserInterface.SelectChange();
+            //UserInterface.SelectChange();
+
+            SodaMachine user = new SodaMachine();
+            string blah = UserInterface.SelectSodaToBuy();
+            user.RemoveCanSoda(blah);
 
 
             

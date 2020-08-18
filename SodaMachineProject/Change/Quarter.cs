@@ -19,6 +19,6 @@ namespace SodaMachineProject
             name = "Quarter";
         }
 
-        //Member Variables
+        //Member Methods
     }
 }

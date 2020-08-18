@@ -19,6 +19,6 @@ namespace SodaMachineProject
             name = "Nickel";
         }
 
-        //Member Variables
+        //Member Methods
     }
 }

@@ -19,6 +19,6 @@ namespace SodaMachineProject
             name = "Penny";
         }
 
-        //Member Variables
+        //Member Methods
     }
 }

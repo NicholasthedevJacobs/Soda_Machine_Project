@@ -21,6 +21,6 @@ namespace SodaMachineProject
             cans = new List<Can>();
         }
 
-        //Member Variables
+        //Member Methods
     }
 }

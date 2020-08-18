@@ -39,7 +39,6 @@ namespace SodaMachineProject
             }
 
         }
-
-        //Member Variables
+        //Member Methods
     }
 }

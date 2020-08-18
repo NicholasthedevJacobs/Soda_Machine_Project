@@ -19,6 +19,6 @@ namespace SodaMachineProject
             name = "Dime";
         }
 
-        //Member Variables
+        //Member Methods
     }
 }

@@ -20,7 +20,7 @@ namespace SodaMachineProject
 
         //Constructor
 
-        //Member Variables
+        //Member Methods
 
     }
 }

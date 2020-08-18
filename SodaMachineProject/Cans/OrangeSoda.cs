@@ -19,6 +19,6 @@ namespace SodaMachineProject
             cost = .06;
         }
 
-        //Member Variables
+        //Member Methods
     }
 }

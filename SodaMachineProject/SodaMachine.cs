@@ -61,17 +61,14 @@ namespace SodaMachineProject
                     RootBeer rootBeer = new RootBeer();
                     inventory.Add(rootBeer);
                 }
-            }
-
-
-           
-            
-
-
-
-
+            }                    
         }
 
-        //Member Variables
+        //Member Methods
+        public void RemoveCanSoda(string userChoiceSoda)
+        {
+           
+           string userChoice = UserInterface.SelectSodaToBuy();
+        }
     }
 }
