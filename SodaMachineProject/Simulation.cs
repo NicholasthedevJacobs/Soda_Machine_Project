@@ -9,6 +9,8 @@ namespace SodaMachineProject
     class Simulation
     {
         //Member Variables
+        public SodaMachine sodaMachine;
+        public Customer customer;
 
         //Properties
 

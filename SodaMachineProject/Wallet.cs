@@ -10,6 +10,9 @@ namespace SodaMachineProject
     {
         //Member Variables
 
+        public List<Coin> coins;
+        public Card card;
+
         //Properties
 
         //Constructor

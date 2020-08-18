@@ -10,6 +10,8 @@ namespace SodaMachineProject
     {
         //Member Variables
 
+        public List<Can> cans;
+
         //Properties
 
         //Constructor

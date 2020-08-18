@@ -10,7 +10,15 @@ namespace SodaMachineProject
     {
         //Member Variables
 
+        private double availableFunds;
+
         //Properties
+
+        public double AvailableFunds
+        {
+
+        } 
+
 
         //Constructor
 

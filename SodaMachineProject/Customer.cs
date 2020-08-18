@@ -10,6 +10,9 @@ namespace SodaMachineProject
     {
         //Member Variables
 
+        public Wallet wallet;
+        public Backpack backpack;
+
         //Properties
 
         //Constructor

@@ -10,6 +10,9 @@ namespace SodaMachineProject
     {
         //Member Variables
 
+        public List<Coin> register;
+        public List<Can> inventory;
+
         //Properties
 
         //Constructor
