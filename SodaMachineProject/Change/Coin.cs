@@ -15,10 +15,10 @@ namespace SodaMachineProject
 
         //Properties
 
-        public double Value
-        {
+        //public double Value
+        //{
 
-        }
+        //}
 
         //Constructor
 

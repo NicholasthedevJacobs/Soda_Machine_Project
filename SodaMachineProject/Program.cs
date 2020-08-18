@@ -10,6 +10,8 @@ namespace SodaMachineProject
     {
         static void Main(string[] args)
         {
+            SodaMachine user = new SodaMachine();
+            
         }
     }
 }

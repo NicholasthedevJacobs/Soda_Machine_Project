@@ -14,10 +14,10 @@ namespace SodaMachineProject
 
         //Properties
 
-        public double AvailableFunds
-        {
+        //public double AvailableFunds
+        //{
 
-        } 
+        //} 
 
 
         //Constructor
