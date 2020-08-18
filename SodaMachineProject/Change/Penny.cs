@@ -13,6 +13,11 @@ namespace SodaMachineProject
         //Properties
 
         //Constructor
+        public Penny()
+        {
+            value = .01;
+            name = "Penny";
+        }
 
         //Member Variables
     }

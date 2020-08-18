@@ -13,6 +13,11 @@ namespace SodaMachineProject
         //Properties
 
         //Constructor
+        public OrangeSoda()
+        {
+            name = "Orange Soda";
+            cost = .06;
+        }
 
         //Member Variables
     }

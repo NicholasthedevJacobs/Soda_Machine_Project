@@ -13,6 +13,11 @@ namespace SodaMachineProject
         //Properties
 
         //Constructor
+        public Quarter()
+        {
+            value = .25;
+            name = "Quarter";
+        }
 
         //Member Variables
     }

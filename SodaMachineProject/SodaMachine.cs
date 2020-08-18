@@ -16,6 +16,10 @@ namespace SodaMachineProject
         //Properties
 
         //Constructor
+        public SodaMachine()
+        {
+
+        }
 
         //Member Variables
     }

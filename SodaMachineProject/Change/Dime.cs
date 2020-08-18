@@ -13,6 +13,11 @@ namespace SodaMachineProject
         //Properties
 
         //Constructor
+        public Dime()
+        {
+            value = .10;
+            name = "Dime";
+        }
 
         //Member Variables
     }

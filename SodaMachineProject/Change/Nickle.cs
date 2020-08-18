@@ -13,6 +13,11 @@ namespace SodaMachineProject
         //Properties
 
         //Constructor
+        public Nickle()
+        {
+            value = .05;
+            name = "Nickle";
+        }
 
         //Member Variables
     }

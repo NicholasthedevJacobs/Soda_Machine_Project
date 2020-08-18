@@ -13,6 +13,11 @@ namespace SodaMachineProject
         //Properties
 
         //Constructor
+        public RootBeer()
+        {
+            name = "Root Beer";
+            cost = .60;
+        }
 
         //Member Variables
     }
