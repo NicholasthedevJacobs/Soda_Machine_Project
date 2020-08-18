@@ -44,17 +44,35 @@ namespace SodaMachineProject
                  }
             }return coinToUse;
         }
-        public static int SelectSodaToBuy()
+        public static string SelectSodaToBuy()
         {
-            Console.WriteLine("Which soda would you like to purchase?");
-            Console.WriteLine("Press '1' for Cola.  Press '2' for Root Beer.  Press '3' for Orange Soda.");
-            int sodaSelected = int.Parse(Console.ReadLine());
-            if (sodaSelected <= 0 || sodaSelected > 3)
+            string sodaSelected = "";
+            bool isValid = false;
+            while (isValid != true)
             {
-                Console.WriteLine("Please select a valid option.");
-                SelectSodaToBuy();
-            }
-            return sodaSelected;
-        }
+                Console.WriteLine("Which soda would you like to purchase?");
+                Console.WriteLine("Press '1' for Cola.  Press '2' for Root Beer.  Press '3' for Orange Soda.");
+                sodaSelected = Console.ReadLine();
+                switch (sodaSelected)
+                {
+                    case "1":
+                        sodaSelected = "Cola";
+                        isValid = true;
+                        break;
+                    case "2":
+                        sodaSelected = "Root Beer";
+                        isValid = true;
+                        break;
+                    case "3":
+                        sodaSelected = "Orange Soda";
+                        isValid = true;
+                        break;
+                    default:
+                        Console.WriteLine("Invalid Selection.  Please choose again.");
+                        break;
+                }
+            }return sodaSelected;
+
+        }       
     }
 }
