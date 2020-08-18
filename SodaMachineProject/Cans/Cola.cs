@@ -6,7 +6,14 @@ using System.Threading.Tasks;
 
 namespace SodaMachineProject
 {
-    class Cola
+    class Cola : Can
     {
+        //Member Variables
+
+        //Properties
+
+        //Constructor
+
+        //Member Variables
     }
 }

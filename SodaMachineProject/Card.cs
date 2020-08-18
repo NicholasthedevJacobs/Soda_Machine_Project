@@ -8,5 +8,12 @@ namespace SodaMachineProject
 {
     class Card
     {
+        //Member Variables
+
+        //Properties
+
+        //Constructor
+
+        //Member Variables
     }
 }

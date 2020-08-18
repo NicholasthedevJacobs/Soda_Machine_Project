@@ -8,5 +8,12 @@ namespace SodaMachineProject
 {
     class Coin
     {
+        //Member Variables
+
+        //Properties
+
+        //Constructor
+
+        //Member Variables
     }
 }
