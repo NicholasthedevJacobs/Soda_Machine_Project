@@ -6,11 +6,19 @@ using System.Threading.Tasks;
 
 namespace SodaMachineProject
 {
-    class Coin
+    abstract class Coin
     {
         //Member Variables
 
+        protected double value;
+        public string name;
+
         //Properties
+
+        public double Value
+        {
+
+        }
 
         //Constructor
 
