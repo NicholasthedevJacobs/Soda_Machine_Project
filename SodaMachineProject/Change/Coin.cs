@@ -10,15 +10,19 @@ namespace SodaMachineProject
     {
         //Member Variables
 
-        protected double value;
+        protected double valueCoin;
         public string name;
 
         //Properties
 
-        //public double Value
-        //{
+        public double Value
+        {
+            get
+            {
+                return valueCoin;
+            }
 
-        //}
+        }
 
         //Constructor
 

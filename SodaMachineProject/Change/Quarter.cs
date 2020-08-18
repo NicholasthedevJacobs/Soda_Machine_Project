@@ -15,7 +15,7 @@ namespace SodaMachineProject
         //Constructor
         public Quarter()
         {
-            value = .25;
+            valueCoin = .25;
             name = "Quarter";
         }
 

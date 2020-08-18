@@ -15,7 +15,7 @@ namespace SodaMachineProject
         //Constructor
         public Dime()
         {
-            value = .10;
+            valueCoin = .10;
             name = "Dime";
         }
 

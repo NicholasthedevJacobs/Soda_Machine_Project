@@ -15,7 +15,7 @@ namespace SodaMachineProject
         //Constructor
         public Penny()
         {
-            value = .01;
+            valueCoin = .01;
             name = "Penny";
         }
 
