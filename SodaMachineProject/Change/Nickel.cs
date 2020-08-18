@@ -6,17 +6,17 @@ using System.Threading.Tasks;
 
 namespace SodaMachineProject
 {
-    class Nickle : Coin
+    class Nickel : Coin
     {
         //Member Variables
 
         //Properties
 
         //Constructor
-        public Nickle()
+        public Nickel()
         {
             valueCoin = .05;
-            name = "Nickle";
+            name = "Nickel";
         }
 
         //Member Variables

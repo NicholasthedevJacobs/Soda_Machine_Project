@@ -35,8 +35,8 @@ namespace SodaMachineProject
                 }
                 while (register.Count >= 30 && register.Count < 50)
                 {
-                    Nickle nickle = new Nickle();
-                    register.Add(nickle);
+                    Nickel nickel = new Nickel();
+                    register.Add(nickel);
                 }
                 while (register.Count >= 50 && register.Count < 100)
                 {

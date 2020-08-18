@@ -14,7 +14,12 @@ namespace SodaMachineProject
 
         //Properties
 
+
         //Constructor
+        public Backpack()
+        {
+            cans = new List<Can>();
+        }
 
         //Member Variables
     }

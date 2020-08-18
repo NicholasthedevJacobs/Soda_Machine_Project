@@ -51,7 +51,7 @@
     <Compile Include="Change\Coin.cs" />
     <Compile Include="Customer.cs" />
     <Compile Include="Change\Dime.cs" />
-    <Compile Include="Change\Nickle.cs" />
+    <Compile Include="Change\Nickel.cs" />
     <Compile Include="Change\Penny.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
