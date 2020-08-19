@@ -65,26 +65,26 @@ namespace SodaMachineProject
         }
 
         //Member Methods
-        public double CheckHowMuchMoneyEntered(string coinEntered)
-        {
-            //double valueOfCoin = 0.00;
-            coinEntered = UserInterface.SelectChange();
-            for(int i = 0; i < 100; i++)
-            {
-                if (coinEntered == register[i].name)
-                {
-                    double valueOfCoin = register[i].Value;
-                    return valueOfCoin;
+        //public double CheckHowMuchMoneyEntered(string coinEntered)
+        //{
+        //    //double valueOfCoin = 0.00;
+        //    coinEntered = UserInterface.SelectChange();
+        //    for(int i = 0; i < register.Count; i++)
+        //    {
+        //        if (coinEntered == register[i].name)
+        //        {
+        //            double valueOfCoin = register[i].Value;
+        //            return valueOfCoin;
                     
-                }
-                else
-                {
-                    i++;
-                }
+        //        }
+        //        else
+        //        {
+        //            i++;
+        //        }
                 
-            }  return 0;                    
-        } 
-        public void ComparePaidToCost(string userChoiceSoda)
+        //    }  return 0;                    
+        //} 
+        public void ComparePaidToCost(Customer customer)
         {
             double amountLeftToPay = 0.00;
             userChoiceSoda = UserInterface.SelectSodaToBuy();
