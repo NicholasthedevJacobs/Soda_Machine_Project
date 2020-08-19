@@ -15,11 +15,17 @@ namespace SodaMachineProject
         //Properties
 
         //Constructor
+        public Simulation()
+        {
+            customer = new Customer();
+            sodaMachine = new SodaMachine();
+        }
 
         //Member Methods
         public double CheckHowMuchMoneyEntered()
         {
             //double valueOfCoin = 0.00;
+            
             string coinEntered = UserInterface.SelectChange();
 
             for (int i = 0; i < customer.wallet.coins.Count; i++)
@@ -57,5 +63,10 @@ namespace SodaMachineProject
             return 0;
 
         }
+        public void MasterMethod()
+        {
+
+        }
+
     }
 }

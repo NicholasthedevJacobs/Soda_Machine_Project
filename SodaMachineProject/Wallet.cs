@@ -16,7 +16,7 @@ namespace SodaMachineProject
         //Properties
         
         //Constructor
-        public Wallet(Quarter quarter, Dime dime, Nickel nickel, Penny penny)
+        public Wallet()
         {
             coins = new List<Coin>();
             card = new Card();
@@ -25,19 +25,19 @@ namespace SodaMachineProject
             {
                 while (coins.Count < 12)
                 {
-                    coins.Add(quarter);
+                    coins.Add(new Quarter());
                 }
                 while (coins.Count >= 12 && coins.Count < 22)
                 {
-                    coins.Add(dime);
+                    coins.Add(new Dime());
                 }
                 while (coins.Count >= 22 && coins.Count < 37)
                 {
-                    coins.Add(nickel);
+                    coins.Add(new Nickel());
                 }
                 while (coins.Count < 62)
                 {
-                    coins.Add(penny);
+                    coins.Add(new Penny());
                 }
             }           
         }
