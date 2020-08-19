@@ -14,7 +14,6 @@ namespace SodaMachineProject
         public static string SelectChange()
         {
             string coinToUse = "";
-            //DisplaySodaCost();
             bool isValid = false;
             while (isValid != true)
             {
@@ -80,7 +79,6 @@ namespace SodaMachineProject
         }
         public static void DisplaySodaCost(string sodaChosen)
         {
-            //string sodaChosen = SelectSodaToBuy();
             if (sodaChosen == "Cola")
             {
                 Console.WriteLine("Cola costs $0.35");
@@ -102,7 +100,5 @@ namespace SodaMachineProject
         {
             Console.WriteLine("Please enter a coin");
         }
-        //public static void 
-
     }
 }

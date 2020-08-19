@@ -64,30 +64,7 @@ namespace SodaMachineProject
             }                    
         }
 
-        //public void ComparePaidToCost(Customer customer)
-        //{
-        //    double amountLeftToPay = 0.00;
-        //    userChoiceSoda = UserInterface.SelectSodaToBuy();
-        //    for (int i = 0; i < 50; i++)
-        //    {
-        //        if (userChoiceSoda == inventory[i].name)
-        //        {
-        //            double priceOfSoda = inventory[i].Cost;
-        //            amountLeftToPay -= priceOfSoda;
 
-        //        }
-        //    }
-
-        //}
-        //public void RunMachine()
-        //{
-        //    string moneyEntered = "";
-        //    string sodaChosen = "";
-        //    UserInterface.DisplaySodaCost(sodaChosen);
-        //    UserInterface.InsertMoneyPrompt();
-        //    CheckHowMuchMoneyEntered(moneyEntered);
-
-        //}
         //public void RemoveCanSoda(string userChoiceSoda)
         //{
 
