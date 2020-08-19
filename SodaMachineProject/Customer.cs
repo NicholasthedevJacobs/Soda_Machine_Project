@@ -23,7 +23,7 @@ namespace SodaMachineProject
         }
 
         //Member Methods
-        public void RemoveChange(string changeSelected)
+        public string RemoveChange(string changeSelected)
         {
             for (int i = 0; i < wallet.coins.Count; i++)
             {
@@ -31,8 +31,13 @@ namespace SodaMachineProject
                 {
                     string coinToRemove = wallet.coins[i].name;
                     wallet.coins.RemoveAt(i);
+                    return coinToRemove;
                 }
-            }
+                else
+                {
+                    i++;
+                }
+            }return null;
         }
     }
 }
