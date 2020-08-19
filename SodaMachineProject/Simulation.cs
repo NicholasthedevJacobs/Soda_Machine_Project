@@ -51,9 +51,10 @@ namespace SodaMachineProject
                 }
                 else
                 {
-
+                   
                 }
             }
+            return 0;
 
         }
     }

@@ -90,6 +90,10 @@ namespace SodaMachineProject
                 Console.WriteLine("Orange Soda costs $0.06");
             }
         }
+        public static void HowMuchLeftToPayMessage(double leftToPay)
+        {
+            Console.WriteLine($"You still owe ${leftToPay}.");
+        }
         public static void InsertMoneyPrompt()
         {
             Console.WriteLine("Please enter a coin");
