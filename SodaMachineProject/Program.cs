@@ -10,8 +10,10 @@ namespace SodaMachineProject
     {
         static void Main(string[] args)
         {
-            SodaMachine user = new SodaMachine();
-            user.RunMachine();
+            //SodaMachine user = new SodaMachine();
+            //user.RunMachine();
+            Simulation user = new Simulation();
+            user.ComparePaidCost();
 
             //UserInterface.SelectChange();
 

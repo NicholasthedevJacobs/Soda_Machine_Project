@@ -16,6 +16,11 @@ namespace SodaMachineProject
         //Properties
 
         //Constructor
+        public Customer(Wallet wallet, Backpack backpack)
+        {
+            this.wallet = wallet;
+            this.backpack = backpack;
+        }
 
         //Member Methods
     }

@@ -21,23 +21,25 @@ namespace SodaMachineProject
             coins = new List<Coin>();
             card = new Card();
 
-            while (coins.Count < 12)
+            if (coins.Count < 62)
             {
-                coins.Add(quarter);
-            }
-            while (coins.Count >= 12 && coins.Count < 22)
-            {
-                coins.Add(dime);
-            }
-            while (coins.Count >= 22 && coins.Count < 37)
-            {
-                coins.Add(nickel);
-            }
-            while (coins.Count < 62)
-            {
-                coins.Add(penny);
-            }
-
+                while (coins.Count < 12)
+                {
+                    coins.Add(quarter);
+                }
+                while (coins.Count >= 12 && coins.Count < 22)
+                {
+                    coins.Add(dime);
+                }
+                while (coins.Count >= 22 && coins.Count < 37)
+                {
+                    coins.Add(nickel);
+                }
+                while (coins.Count < 62)
+                {
+                    coins.Add(penny);
+                }
+            }           
         }
         //Member Methods
     }

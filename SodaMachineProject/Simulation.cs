@@ -36,11 +36,11 @@ namespace SodaMachineProject
             }
             return 0;
         }
-        public double ComparePaidCost(double valueOfCoin)
+        public double ComparePaidCost()
         {
              
             string userChoiceSoda = UserInterface.SelectSodaToBuy();
-            valueOfCoin = CheckHowMuchMoneyEntered();
+            double valueOfCoin = CheckHowMuchMoneyEntered();
             for (int i = 0; i < sodaMachine.inventory.Count; i++)
             {
                 if (userChoiceSoda == sodaMachine.inventory[i].name)
