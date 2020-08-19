@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SodaMachineProject
 {
-    static class UserInterface
+    public static class UserInterface
     {
 
         //Member Methods
@@ -73,6 +73,23 @@ namespace SodaMachineProject
                 }
             }return sodaSelected;
 
-        }       
+        }
+        public static void DisplaySodaCost(string sodaChosen)
+        {
+            sodaChosen = SelectSodaToBuy();
+            if (sodaChosen == "Cola")
+            {
+                Console.WriteLine("Cola costs $0.35");
+            }
+            else if (sodaChosen == "Root Beer")
+            {
+                Console.WriteLine("Root Beer costs $0.60");
+            }
+            else if (sodaChosen == "Orange Soda")
+            {
+                Console.WriteLine("Orange Soda costs $0.06");
+            }
+        }
+        
     }
 }
