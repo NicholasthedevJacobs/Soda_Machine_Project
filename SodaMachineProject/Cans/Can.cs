@@ -13,10 +13,13 @@ namespace SodaMachineProject
         public string name;
 
         //Properties
-        //public double Cost
-        //{
-
-        //}
+        public double Cost
+        {
+            get
+            {
+                return cost;
+            }
+        }
 
         //Constructor
 

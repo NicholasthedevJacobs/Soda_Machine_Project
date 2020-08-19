@@ -10,13 +10,14 @@ namespace SodaMachineProject
     {
         static void Main(string[] args)
         {
-            // SodaMachine user = new SodaMachine();
+            SodaMachine user = new SodaMachine();
+            user.RunMachine();
 
             //UserInterface.SelectChange();
 
-            SodaMachine user = new SodaMachine();
-            string blah = UserInterface.SelectSodaToBuy();
-            user.RemoveCanSoda(blah);
+            //SodaMachine user = new SodaMachine();
+            //string blah = UserInterface.SelectSodaToBuy();
+            //user.RemoveCanSoda(blah);
 
 
             

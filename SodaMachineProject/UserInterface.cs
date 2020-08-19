@@ -94,6 +94,7 @@ namespace SodaMachineProject
         {
             Console.WriteLine("Please enter a coin");
         }
+        //public static void 
 
     }
 }

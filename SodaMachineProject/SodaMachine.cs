@@ -65,11 +65,54 @@ namespace SodaMachineProject
         }
 
         //Member Methods
-        public void RemoveCanSoda(string userChoiceSoda)
+        public double CheckHowMuchMoneyEntered(string coinEntered)
         {
-           
-           string userChoice = UserInterface.SelectSodaToBuy();
+            //double valueOfCoin = 0.00;
+            coinEntered = UserInterface.SelectChange();
+            for(int i = 0; i < 100; i++)
+            {
+                if (coinEntered == register[i].name)
+                {
+                    double valueOfCoin = register[i].Value;
+                    return valueOfCoin;
+                    
+                }
+                else
+                {
+                    i++;
+                }
+                
+            }  return 0;                    
+        } 
+        public void ComparePaidToCost(string userChoiceSoda)
+        {
+            double amountLeftToPay = 0.00;
+            userChoiceSoda = UserInterface.SelectSodaToBuy();
+            for (int i = 0; i < 50; i++)
+            {
+                if (userChoiceSoda == inventory[i].name)
+                {
+                    double priceOfSoda = inventory[i].Cost;
+                    amountLeftToPay -= priceOfSoda;
+
+                }
+            }
+
         }
+        public void RunMachine()
+        {
+            string moneyEntered = "";
+            string sodaChosen = "";
+            UserInterface.DisplaySodaCost(sodaChosen);
+            UserInterface.InsertMoneyPrompt();
+            CheckHowMuchMoneyEntered(moneyEntered);
+
+        }
+        //public void RemoveCanSoda(string userChoiceSoda)
+        //{
+
+        //   string userChoice = UserInterface.SelectSodaToBuy();
+        //}
 
     }
 }
