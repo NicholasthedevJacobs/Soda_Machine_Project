@@ -23,5 +23,16 @@ namespace SodaMachineProject
         }
 
         //Member Methods
+        public void RemoveChange(string changeSelected)
+        {
+            for (int i = 0; i < wallet.coins.Count; i++)
+            {
+                if (changeSelected == wallet.coins[i].name)
+                {
+                    string coinToRemove = wallet.coins[i].name;
+                    wallet.coins.RemoveAt(i);
+                }
+            }
+        }
     }
 }

@@ -33,6 +33,7 @@ namespace SodaMachineProject
                 if (coinEntered == customer.wallet.coins[i].name)
                 {
                     double valueOfCoin = customer.wallet.coins[i].Value;
+                    
                     return valueOfCoin;
                 }
                 else
@@ -53,6 +54,7 @@ namespace SodaMachineProject
                 {
                     double priceOfSoda = sodaMachine.inventory[i].Cost;
                     double amountLeftToPay = priceOfSoda - valueOfCoin;
+
                     return amountLeftToPay;
                 }
                 else
@@ -63,6 +65,20 @@ namespace SodaMachineProject
             return 0;
 
         }
+        //public void AddPaymentToRegister(string changeSelected)
+        //{
+        //    for (int i = 0; i < customer.wallet.coins.Count; i++)
+        //    {
+        //        if (changeSelected == "Quarter")
+        //        {
+        //            sodaMachine.register.Add(new Quarter());
+        //            sodaMachine.register.Add(quarter);
+        //            customer.wallet.coins.Remove
+        //        }
+        //    }
+           
+        //}
+
         public void MasterMethod()
         {
             string selectedSoda = UserInterface.SelectSodaToBuy();
