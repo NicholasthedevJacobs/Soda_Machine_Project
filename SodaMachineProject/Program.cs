@@ -13,7 +13,7 @@ namespace SodaMachineProject
             //SodaMachine user = new SodaMachine();
             //user.RunMachine();
             Simulation user = new Simulation();
-            user.ComparePaidCost();
+            user.MasterMethod();
 
             //UserInterface.SelectChange();
 

@@ -22,12 +22,12 @@ namespace SodaMachineProject
         }
 
         //Member Methods
-        public double CheckHowMuchMoneyEntered()
+        public double CheckHowMuchMoneyEntered(string coinEntered)
         {
             //double valueOfCoin = 0.00;
-            
-            string coinEntered = UserInterface.SelectChange();
 
+            //string coinEntered = UserInterface.SelectChange();
+            //coinEntered = "";
             for (int i = 0; i < customer.wallet.coins.Count; i++)
             {
                 if (coinEntered == customer.wallet.coins[i].name)
@@ -42,11 +42,11 @@ namespace SodaMachineProject
             }
             return 0;
         }
-        public double ComparePaidCost()
+        public double ComparePaidCost(string userChoiceSoda, double valueOfCoin)
         {
              
-            string userChoiceSoda = UserInterface.SelectSodaToBuy();
-            double valueOfCoin = CheckHowMuchMoneyEntered();
+            //string userChoiceSoda = UserInterface.SelectSodaToBuy();
+            //double valueOfCoin = CheckHowMuchMoneyEntered();
             for (int i = 0; i < sodaMachine.inventory.Count; i++)
             {
                 if (userChoiceSoda == sodaMachine.inventory[i].name)
@@ -65,7 +65,12 @@ namespace SodaMachineProject
         }
         public void MasterMethod()
         {
-
+            string selectedSoda = UserInterface.SelectSodaToBuy();
+            UserInterface.DisplaySodaCost(selectedSoda);
+            UserInterface.InsertMoneyPrompt();
+            string changeSelected = UserInterface.SelectChange();
+            double valueOfCoin = CheckHowMuchMoneyEntered(changeSelected);
+            ComparePaidCost(selectedSoda, valueOfCoin);
         }
 
     }
