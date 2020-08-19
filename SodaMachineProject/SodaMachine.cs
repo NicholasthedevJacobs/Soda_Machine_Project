@@ -63,6 +63,10 @@ namespace SodaMachineProject
                 }
             }                    
         }
+        public void AddChangePayment(Coin payment)
+        {
+            register.Add(payment);
+        }
 
 
         //public void RemoveCanSoda(string userChoiceSoda)
