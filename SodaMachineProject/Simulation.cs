@@ -56,9 +56,7 @@ namespace SodaMachineProject
                 }
             }
             return 0;
-
-        }
-        
+        }        
         public void MasterMethod()
         {
             string selectedSoda = UserInterface.SelectSodaToBuy();
@@ -72,6 +70,7 @@ namespace SodaMachineProject
             while (amountLeftToPay > 0)
             {
                 UserInterface.DisplayOutstandingPayment(amountLeftToPay);
+                UserInterface.AskToContinueTransaction();
             }
             //Coin payment = customer.RemoveChange(changeSelected);
             //sodaMachine.AddChangePayment(payment);

@@ -108,5 +108,26 @@ namespace SodaMachineProject
         {
             Console.WriteLine("Would you like to keep adding money, or would you like to cancel the transaction?");
         }
+        public static string TakeUserInputForContinue()
+        {
+            Console.WriteLine("Press '1' to continue transaction.  Press '2' to cancel transaction");
+            string userInput = Console.ReadLine();
+            if (userInput == "1" )
+            {
+                Console.WriteLine("Excellent!  One step closer to your tasty beverage!");
+                return userInput;
+            }
+            else if (userInput == "2")
+            {
+                Console.WriteLine("Transaction canceled...");
+                return userInput;
+            }
+            else
+            {
+                Console.WriteLine("Please enter a valid input.");
+                TakeUserInputForContinue();
+                return null;
+            }
+        }
     }
 }
