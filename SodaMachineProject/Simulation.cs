@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,12 +12,14 @@ namespace SodaMachineProject
         //Member Variables
         public SodaMachine sodaMachine;
         public Customer customer;
+        List<Coin> simulatedCoin;
 
         //Properties
 
         //Constructor
         public Simulation()
         {
+            simulatedCoin = new List<Coin>();
             customer = new Customer();
             sodaMachine = new SodaMachine();
         }
@@ -65,6 +68,8 @@ namespace SodaMachineProject
         }
         public void RemoveChangeFromMachine(double returnChange)
         {
+            //List<Coin> simulatedCoin = new List<Coin>();
+
             while (returnChange > 0 && sodaMachine.register.Count > 0)
             {
                 if (returnChange >= 0.25)
@@ -75,11 +80,11 @@ namespace SodaMachineProject
                         {
                             Coin coinReturnToWallet = sodaMachine.register[i];
                             sodaMachine.register.RemoveAt(i);
-                            ReturnChangeToWallet(coinReturnToWallet);
+                            simulatedCoin.Add(coinReturnToWallet);
+                            //ReturnChangeToWallet(coinReturnToWallet);
                             returnChange -= sodaMachine.register[i].Value;
                             break;
-                        }
-                        
+                        }                        
                     }
                 }
                 if (returnChange >= 0.10)
@@ -90,8 +95,10 @@ namespace SodaMachineProject
                         {
                             Coin coinReturnToWallet = sodaMachine.register[i];
                             sodaMachine.register.RemoveAt(i);
-                            ReturnChangeToWallet(coinReturnToWallet);
+                            simulatedCoin.Add(coinReturnToWallet);
                             returnChange -= sodaMachine.register[i].Value;
+                            //SimulatedReturnChangeToWallet(coinReturnToWallet);
+                            
                             break;
                         }
                     }
@@ -104,7 +111,8 @@ namespace SodaMachineProject
                         {
                             Coin coinReturnToWallet = sodaMachine.register[i];
                             sodaMachine.register.RemoveAt(i);
-                            ReturnChangeToWallet(coinReturnToWallet);
+                            simulatedCoin.Add(coinReturnToWallet);
+                            //ReturnChangeToWallet(coinReturnToWallet);
                             returnChange -= sodaMachine.register[i].Value;
                             break;
                         }
@@ -118,7 +126,8 @@ namespace SodaMachineProject
                         {
                             Coin coinReturnToWallet = sodaMachine.register[i];
                             sodaMachine.register.RemoveAt(i);
-                            ReturnChangeToWallet(coinReturnToWallet);
+                            simulatedCoin.Add(coinReturnToWallet);
+                            //ReturnChangeToWallet(coinReturnToWallet);
                             returnChange -= sodaMachine.register[i].Value;
                             break;
                         }
@@ -126,10 +135,14 @@ namespace SodaMachineProject
                 }
                 break;
             }
-        }
+        }      
         public void ReturnChangeToWallet(Coin coinReturnToWallet)
         {
             customer.wallet.coins.Add(coinReturnToWallet);
+        }
+        public void SimulatedCompareToActual ()
+        {
+            
         }
         public double FinishRemainingBalance(double amountLeftToPay, double valueOfCoin)
         {
@@ -216,6 +229,7 @@ namespace SodaMachineProject
                         {
                             DispenseSoda(selectedSoda);
                             double returnChange = CheckIfNegative(remainingBalance);
+                            //while (sodaMachine.register.Contains(Penny))
                             RemoveChangeFromMachine(returnChange);
                         }
                         else
