@@ -136,6 +136,17 @@ namespace SodaMachineProject
             amountLeftToPay -= valueOfCoin;
             return amountLeftToPay;
         }
+        public void DispenseSoda(string selectedSoda)
+        {
+            for (int i = 0; i < sodaMachine.inventory.Count; i++)
+            {
+                if(sodaMachine.inventory[i].name == selectedSoda)
+                {
+                    sodaMachine.inventory.RemoveAt(i);
+
+                }
+            }
+        }
         public void MasterMethod()
         {
             string selectedSoda = UserInterface.SelectSodaToBuy();
@@ -155,8 +166,7 @@ namespace SodaMachineProject
                 {
                     changeSelected = UserInterface.SelectChange();
                     valueOfCoin = CheckHowMuchMoneyEntered(changeSelected);
-                    double remainingBalance = FinishRemainingBalance(amountLeftToPay, valueOfCoin);
-                    //amountLeftToPay = ComparePaidCost(selectedSoda, valueOfCoin);
+                    double remainingBalance = FinishRemainingBalance(amountLeftToPay, valueOfCoin);                   
                     if (remainingBalance < 0)
                     {
                         double returnChange = CheckIfNegative(remainingBalance);
