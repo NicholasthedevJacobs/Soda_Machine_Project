@@ -129,7 +129,7 @@ namespace SodaMachineProject
                 return null;
             }
         }
-        public static void HasSodaMessage(string selectedSoda)
+        public static void DoesNotHaveSodaMessage(string selectedSoda)
         {
             Console.WriteLine("Sorry, we are out of {selectedSoda}.  Your payment will be refunded");
         }

@@ -180,9 +180,10 @@ namespace SodaMachineProject
                 else
                 {
                     hasSoda = false;
-
+                    UserInterface.DoesNotHaveSodaMessage(selectedSoda);                  
                 }
             }
+            return hasSoda;
         }
         public void AddSodaToBackpack(Can canToAddToBackpack)
         {
@@ -210,9 +211,17 @@ namespace SodaMachineProject
                     double remainingBalance = FinishRemainingBalance(amountLeftToPay, valueOfCoin);                   
                     if (remainingBalance < 0)
                     {
-                        DispenseSoda(selectedSoda);
-                        double returnChange = CheckIfNegative(remainingBalance);
-                        RemoveChangeFromMachine(returnChange);
+                        bool hasSoda = CheckIfSodaStocked(selectedSoda);
+                        if(hasSoda == true)
+                        {
+                            DispenseSoda(selectedSoda);
+                            double returnChange = CheckIfNegative(remainingBalance);
+                            RemoveChangeFromMachine(returnChange);
+                        }
+                        else
+                        {
+                            GiveFullPaymentBack(remainingBalance, selectedSoda);
+                        }
                     }
                     else
                     {
