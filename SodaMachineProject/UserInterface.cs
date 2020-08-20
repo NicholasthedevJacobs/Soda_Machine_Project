@@ -45,11 +45,24 @@ namespace SodaMachineProject
                  }
             }return coinToUse;
         }
-        public static string AskIfHaveMoreMoneyToAdd()
+        public static bool AskIfHaveMoreMoneyToAdd()
         {
             Console.WriteLine("Do you have more change to enter?  Press '1' for Yes.  Press '2' for No.");
             string userSelection = Console.ReadLine();
-            return userSelection;
+            bool hasMoney = false;
+            switch (userSelection)
+            {
+                case "1":
+                    hasMoney = true;
+                    break;
+                case "2":
+                    hasMoney = false;
+                    break;
+                default:
+                    Console.WriteLine("Please enter a valid option.");
+                    break;
+            }
+            return hasMoney;
         }
         public static string SelectSodaToBuy()
         {

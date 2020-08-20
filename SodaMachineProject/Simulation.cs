@@ -165,7 +165,7 @@ namespace SodaMachineProject
                         willDispense = false;
                         return willDispense;
                     }
-                }                
+                }              
             }
             else
             {
@@ -179,9 +179,9 @@ namespace SodaMachineProject
                         willDispense = true;
                         return willDispense;
                     }
-                }
-                
+                }                
             }
+            return willDispense;
         }
         public double FinishRemainingBalance(double amountLeftToPay, double valueOfCoin)
         {
@@ -255,6 +255,7 @@ namespace SodaMachineProject
             {
                 UserInterface.DisplayOutstandingPayment(amountLeftToPay);
                 UserInterface.AskToContinueTransaction();
+                bool hasMoney = UserInterface.AskIfHaveMoreMoneyToAdd();
                 string continueTransaction = UserInterface.TakeUserInputForContinue();
                 if (continueTransaction == "1")
                 {
