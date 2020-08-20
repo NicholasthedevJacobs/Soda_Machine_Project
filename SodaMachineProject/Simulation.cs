@@ -196,6 +196,16 @@ namespace SodaMachineProject
             }
             return willDispense;
         }
+        public void ReturnChangeToUserWhenShort()
+        {
+            for (int i = 0; i < simulatedCoin.Count; i++)
+            {
+                Coin coinReturnToCustomer = simulatedCoin[i];
+                simulatedCoin.RemoveAt(i);
+                ReturnChangeToWallet(coinReturnToCustomer);
+
+            }
+        }
         public double FinishRemainingBalance(double amountLeftToPay, double valueOfCoin)
         {
             amountLeftToPay -= valueOfCoin;
@@ -312,6 +322,10 @@ namespace SodaMachineProject
                     {
 
                     }
+                }
+                else
+                {
+
                 }
 
             }
