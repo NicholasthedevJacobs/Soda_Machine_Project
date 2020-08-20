@@ -142,10 +142,15 @@ namespace SodaMachineProject
             {
                 if(sodaMachine.inventory[i].name == selectedSoda)
                 {
+                    Can canToAddToBackpack = sodaMachine.inventory[i];
                     sodaMachine.inventory.RemoveAt(i);
-
+                    AddSodaToBackpack(canToAddToBackpack);
                 }
             }
+        }
+        public void AddSodaToBackpack(Can canToAddToBackpack)
+        {
+            customer.backpack.cans.Add(canToAddToBackpack);
         }
         public void MasterMethod()
         {
