@@ -149,7 +149,7 @@ namespace SodaMachineProject
                 }
                 else
                 {
-                    //Add method call to give change back
+                    //GiveFullPaymentBack(remainingBalance, selectedSoda);
                 }
             }
         }
@@ -162,11 +162,27 @@ namespace SodaMachineProject
                     double returnPrice = sodaMachine.inventory[i].Cost;
                     double fullPaymentBack = remainingBalance + returnPrice;
                     return fullPaymentBack;
-                }
-                
+                }                
             }
             return 0;
 
+        }
+        public bool CheckIfSodaStocked(string selectedSoda)
+        {
+            bool hasSoda = false;
+            for(int i = 0; i < sodaMachine.inventory.Count; i++)
+            {
+                if(selectedSoda == sodaMachine.inventory[i].name)
+                {
+                    hasSoda = true;
+                    return hasSoda;
+                }
+                else
+                {
+                    hasSoda = false;
+
+                }
+            }
         }
         public void AddSodaToBackpack(Can canToAddToBackpack)
         {
