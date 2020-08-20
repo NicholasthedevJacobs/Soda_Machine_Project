@@ -63,7 +63,7 @@ namespace SodaMachineProject
                 }
             }                    
         }
-        public void AddChangePayment(Coin payment)
+        public void AddChangePaymentToRegister(Coin payment)
         {
             register.Add(payment);
         }
