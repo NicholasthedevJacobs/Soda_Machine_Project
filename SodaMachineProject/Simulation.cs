@@ -48,6 +48,7 @@ namespace SodaMachineProject
                     double priceOfSoda = sodaMachine.inventory[i].Cost;
                     double amountLeftToPay = priceOfSoda - valueOfCoin;
 
+
                     return amountLeftToPay;
                 }
                 else
@@ -58,16 +59,9 @@ namespace SodaMachineProject
             return 0;
         }
         public double CheckIfNegative(double returnChange)
-        {
-            if (returnChange < 0)
-            {
-                double returnChangeAbsolute = Math.Abs(returnChange);
-                return returnChangeAbsolute;
-            }
-            else
-            {
-                return 0;
-            }
+        {           
+            double returnChangeAbsolute = Math.Abs(returnChange);
+            return returnChangeAbsolute;          
         }
         public void MasterMethod()
         {
@@ -89,6 +83,10 @@ namespace SodaMachineProject
                     changeSelected = UserInterface.SelectChange();
                     valueOfCoin = CheckHowMuchMoneyEntered(changeSelected);
                     amountLeftToPay = ComparePaidCost(selectedSoda, valueOfCoin);
+                    if (amountLeftToPay < 0)
+                    {
+                        CheckIfNegative(amountLeftToPay);
+                    }
 
                 }
                 else
