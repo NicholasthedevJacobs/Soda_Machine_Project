@@ -140,6 +140,10 @@ namespace SodaMachineProject
         {
             customer.wallet.coins.Add(coinReturnToWallet);
         }
+        public void ReturnChangeToMachine(Coin coinReturnToWallet)
+        {
+            sodaMachine.register.Add(coinReturnToWallet);
+        }
         public void SimulatedCompareToActual (double returnChange)
         {
             double totalValue = 0;
@@ -149,19 +153,30 @@ namespace SodaMachineProject
             }          
             if(totalValue < returnChange)
             {
-                for(int i = 0; i < simulatedCoin.Count; i++)
+                while(simulatedCoin.Count > 0)
                 {
-                    Coin coinReturnToWallet = simulatedCoin[i]; ;
-                    simulatedCoin.RemoveAt(i);
-                    ReturnChangeToWallet(coinReturnToWallet);
+                    for (int i = 0; i < simulatedCoin.Count; i++)
+                    {
+                        Coin coinReturnToWallet = simulatedCoin[i]; ;
+                        simulatedCoin.RemoveAt(i);
+                        ReturnChangeToMachine(coinReturnToWallet);
+                        ReturnChangeToWallet(coinReturnToWallet);
+                    }
                 }
+                
             }
             else
             {
-                for(int i = 0; i < simulatedCoin.Count; i++)
+                while (simulatedCoin.Count > 0)
                 {
-
+                    for (int i = 0; i < simulatedCoin.Count; i++)
+                    {
+                        Coin coinReturnToWallet = simulatedCoin[i]; ;
+                        simulatedCoin.RemoveAt(i);
+                        ReturnChangeToWallet(coinReturnToWallet);
+                    }
                 }
+                
             }
         }
         public double FinishRemainingBalance(double amountLeftToPay, double valueOfCoin)
@@ -247,10 +262,13 @@ namespace SodaMachineProject
                         bool hasSoda = CheckIfSodaStocked(selectedSoda);
                         if(hasSoda == true)
                         {
-                            DispenseSoda(selectedSoda);
                             double returnChange = CheckIfNegative(remainingBalance);
-                            //while (sodaMachine.register.Contains(Penny))
+                            //possibly check if returnChange > 0
                             RemoveChangeFromMachine(returnChange);
+                            SimulatedCompareToActual(returnChange);
+                            DispenseSoda(selectedSoda);
+                            
+                            
                         }
                         else
                         {
