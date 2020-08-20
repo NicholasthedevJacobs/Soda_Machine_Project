@@ -149,9 +149,20 @@ namespace SodaMachineProject
             }          
             if(totalValue < returnChange)
             {
-
+                for(int i = 0; i < simulatedCoin.Count; i++)
+                {
+                    Coin coinReturnToWallet = simulatedCoin[i]; ;
+                    simulatedCoin.RemoveAt(i);
+                    ReturnChangeToWallet(coinReturnToWallet);
+                }
             }
             else
+            {
+                for(int i = 0; i < simulatedCoin.Count; i++)
+                {
+
+                }
+            }
         }
         public double FinishRemainingBalance(double amountLeftToPay, double valueOfCoin)
         {
