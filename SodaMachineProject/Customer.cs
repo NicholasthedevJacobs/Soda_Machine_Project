@@ -25,6 +25,7 @@ namespace SodaMachineProject
         //Member Methods
         public Coin RemoveChange(string changeSelected)
         {
+            //Removes money from the wallet
             for (int i = 0; i < wallet.coins.Count; i++)
             {
                 if (changeSelected == wallet.coins[i].name)

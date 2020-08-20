@@ -63,9 +63,9 @@ namespace SodaMachineProject
             double returnChangeAbsolute = Math.Abs(returnChange);
             return returnChangeAbsolute;          
         }
-        public void ReturnMoneyToWallet(double returnChange)
+        public void RemoveChangeFromMachine(double returnChange)
         {
-            while (returnChange > 0)
+            while (returnChange > 0 && sodaMachine.register.Count > 0)
             {
                 if (returnChange > 0.25)
                 {
@@ -73,13 +73,19 @@ namespace SodaMachineProject
                     {
                         if (sodaMachine.register[i].name == "Quarter")
                         {
+                            Coin coinReturnToWallet = sodaMachine.register[i];
                             sodaMachine.register.RemoveAt(i);
+                            ReturnChangeToWallet(coinReturnToWallet);                            
                         }
                         
                     }
                 }
 
             }
+        }
+        public void ReturnChangeToWallet(Coin coinReturnToWallet)
+        {
+            customer.wallet.coins.Add(coinReturnToWallet);
         }
         public void MasterMethod()
         {
