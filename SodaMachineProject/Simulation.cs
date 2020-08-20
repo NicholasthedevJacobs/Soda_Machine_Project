@@ -65,8 +65,14 @@ namespace SodaMachineProject
             UserInterface.InsertMoneyPrompt();
             string changeSelected = UserInterface.SelectChange();
             double valueOfCoin = CheckHowMuchMoneyEntered(changeSelected);
-            ComparePaidCost(selectedSoda, valueOfCoin);
+            double amountLeftToPay = ComparePaidCost(selectedSoda, valueOfCoin);
+            while(amountLeftToPay > 0)
+            {
+
+            }
             Coin payment = customer.RemoveChange(changeSelected);
+            sodaMachine.AddChangePayment(payment);
+            
         }
 
     }
