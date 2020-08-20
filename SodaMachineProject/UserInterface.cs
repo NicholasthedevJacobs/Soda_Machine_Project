@@ -47,7 +47,11 @@ namespace SodaMachineProject
         }
         public static void ChangeReturnMessage(string coinReturnToCustomer)
         {
-            Console.WriteLine($"We have returned your ${coinReturnToCustomer}.");
+            Console.WriteLine($"We have returned your {coinReturnToCustomer}.");
+        }
+        public static void EndMessage()
+        {
+            Console.WriteLine("Thanks for shopping with us.");
         }
         public static bool AskIfHaveMoreMoneyToAdd()
         {
