@@ -222,6 +222,7 @@ namespace SodaMachineProject
                     Can canToAddToBackpack = sodaMachine.inventory[i];
                     sodaMachine.inventory.RemoveAt(i);
                     AddSodaToBackpack(canToAddToBackpack);
+                    UserInterface.DispenseSodaMessage(selectedSoda);
                     break;
                 }
                 else
@@ -295,28 +296,29 @@ namespace SodaMachineProject
                         SimulatePaymentTotal(payment);
                         //MoveCoinFromSimulatedToMachine();
                         //Take change from virtual wallet and add to machine
-                        double remainingBalance = FinishRemainingBalance(amountLeftToPay, valueOfCoin);
-                        if (remainingBalance < 0)
+                        amountLeftToPay = FinishRemainingBalance(amountLeftToPay, valueOfCoin);
+                        if (amountLeftToPay <= 0)
                         {
                             bool hasSoda = CheckIfSodaStocked(selectedSoda);
                             if (hasSoda == true)
                             {
-                                double returnChange = CheckIfNegative(remainingBalance);
+                                double returnChange = CheckIfNegative(amountLeftToPay);
                                 //possibly check if returnChange > 0
                                 RemoveChangeFromMachine(returnChange);
                                 bool willDispense = SimulatedCompareToActual(returnChange);
+                                MoveCoinFromSimulatedToMachine();
                                 if (willDispense == true)
                                 {
                                     DispenseSoda(selectedSoda);
                                 }
                                 else
                                 {
-                                    GiveFullPaymentBack(remainingBalance, selectedSoda);
+                                    GiveFullPaymentBack(amountLeftToPay, selectedSoda);
                                 }
                             }
                             else
                             {
-                                GiveFullPaymentBack(remainingBalance, selectedSoda);
+                                GiveFullPaymentBack(amountLeftToPay, selectedSoda);
                             }
                         }
                         else

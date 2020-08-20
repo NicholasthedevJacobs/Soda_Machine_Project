@@ -166,5 +166,9 @@ namespace SodaMachineProject
         {
             Console.ReadLine();
         }
+        public static void DispenseSodaMessage(string nameSoda)
+        {
+            Console.WriteLine($"The {nameSoda} has been dispensed.");
+        }
     }
 }
