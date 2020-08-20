@@ -256,37 +256,75 @@ namespace SodaMachineProject
                 UserInterface.DisplayOutstandingPayment(amountLeftToPay);
                 UserInterface.AskToContinueTransaction();
                 bool hasMoney = UserInterface.AskIfHaveMoreMoneyToAdd();
-                string continueTransaction = UserInterface.TakeUserInputForContinue();
-                if (continueTransaction == "1")
+                if (hasMoney == true)
                 {
-                    changeSelected = UserInterface.SelectChange();
-                    valueOfCoin = CheckHowMuchMoneyEntered(changeSelected);
-                    double remainingBalance = FinishRemainingBalance(amountLeftToPay, valueOfCoin);                   
-                    if (remainingBalance < 0)
+                    string continueTransaction = UserInterface.TakeUserInputForContinue();
+                    if (continueTransaction == "1")
                     {
-                        bool hasSoda = CheckIfSodaStocked(selectedSoda);
-                        if(hasSoda == true)
+                        changeSelected = UserInterface.SelectChange();
+                        valueOfCoin = CheckHowMuchMoneyEntered(changeSelected);
+                        double remainingBalance = FinishRemainingBalance(amountLeftToPay, valueOfCoin);
+                        if (remainingBalance < 0)
                         {
-                            double returnChange = CheckIfNegative(remainingBalance);
-                            //possibly check if returnChange > 0
-                            RemoveChangeFromMachine(returnChange);
-                            bool willDispense = SimulatedCompareToActual(returnChange);
-                            if (willDispense == true)
+                            bool hasSoda = CheckIfSodaStocked(selectedSoda);
+                            if (hasSoda == true)
                             {
-                                DispenseSoda(selectedSoda);
+                                double returnChange = CheckIfNegative(remainingBalance);
+                                //possibly check if returnChange > 0
+                                RemoveChangeFromMachine(returnChange);
+                                bool willDispense = SimulatedCompareToActual(returnChange);
+                                if (willDispense == true)
+                                {
+                                    DispenseSoda(selectedSoda);
+                                }
+                                else
+                                {
+                                    GiveFullPaymentBack(remainingBalance, selectedSoda);
+                                }
                             }
                             else
                             {
                                 GiveFullPaymentBack(remainingBalance, selectedSoda);
                             }
                         }
-                        else
-                        {
-                            GiveFullPaymentBack(remainingBalance, selectedSoda);
-                        }
-                    }
 
+                    }
+                    else
+                    {
+
+                    }
                 }
+                //string continueTransaction = UserInterface.TakeUserInputForContinue();
+                //if (continueTransaction == "1")
+                //{
+                //    changeSelected = UserInterface.SelectChange();
+                //    valueOfCoin = CheckHowMuchMoneyEntered(changeSelected);
+                //    double remainingBalance = FinishRemainingBalance(amountLeftToPay, valueOfCoin);                   
+                //    if (remainingBalance < 0)
+                //    {
+                //        bool hasSoda = CheckIfSodaStocked(selectedSoda);
+                //        if(hasSoda == true)
+                //        {
+                //            double returnChange = CheckIfNegative(remainingBalance);
+                //            //possibly check if returnChange > 0
+                //            RemoveChangeFromMachine(returnChange);
+                //            bool willDispense = SimulatedCompareToActual(returnChange);
+                //            if (willDispense == true)
+                //            {
+                //                DispenseSoda(selectedSoda);
+                //            }
+                //            else
+                //            {
+                //                GiveFullPaymentBack(remainingBalance, selectedSoda);
+                //            }
+                //        }
+                //        else
+                //        {
+                //            GiveFullPaymentBack(remainingBalance, selectedSoda);
+                //        }
+                //    }
+
+                //}
 
             }
             //Coin payment = customer.RemoveChange(changeSelected);
