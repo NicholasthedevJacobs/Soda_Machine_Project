@@ -147,7 +147,26 @@ namespace SodaMachineProject
                     AddSodaToBackpack(canToAddToBackpack);
                     break;
                 }
+                else
+                {
+                    //Add method call to give change back
+                }
             }
+        }
+        public double GiveFullPaymentBack(double remainingBalance, string selectedSoda)
+        {
+            for (int i = 0; i < sodaMachine.inventory.Count; i++)
+            {
+                if (selectedSoda == sodaMachine.inventory[i].name)
+                {
+                    double returnPrice = sodaMachine.inventory[i].Cost;
+                    double fullPaymentBack = remainingBalance + returnPrice;
+                    return fullPaymentBack;
+                }
+                
+            }
+            return 0;
+
         }
         public void AddSodaToBackpack(Can canToAddToBackpack)
         {
