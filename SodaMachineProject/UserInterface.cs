@@ -121,10 +121,6 @@ namespace SodaMachineProject
                 Console.WriteLine("Orange Soda costs $0.06");
             }
         }
-        public static void HowMuchLeftToPayMessage(double leftToPay)
-        {
-            Console.WriteLine($"You still owe ${leftToPay}.");
-        }
         public static void InsertMoneyPrompt()
         {
             Console.WriteLine("Please enter a coin");
@@ -133,10 +129,6 @@ namespace SodaMachineProject
         {
             Console.WriteLine($"You still must pay ${amountLeftToPay} in order to get your beverage.");
         }
-        //public static void AskToContinueTransaction()
-        //{
-        //    Console.WriteLine("Would you like to keep adding money, or would you like to cancel the transaction?");
-        //}
         public static string TakeUserInputForContinue()
         {
             Console.WriteLine("Press '1' to continue transaction.  Press '2' to cancel transaction");
