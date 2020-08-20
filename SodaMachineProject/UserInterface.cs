@@ -19,6 +19,7 @@ namespace SodaMachineProject
             {
                 Console.WriteLine("What coin would you like to put in the machine?");
                 Console.WriteLine("Press '1' for Quarter.  Press '2' for Dime.  Press '3' for Nickel.  Press '4' for Penny. ");
+                //Console.WriteLine("If you are out of money, press '5' and your change will be returned.");
                 coinToUse = Console.ReadLine();
                 switch (coinToUse)
                  {
@@ -43,6 +44,12 @@ namespace SodaMachineProject
                         break;
                  }
             }return coinToUse;
+        }
+        public static string AskIfHaveMoreMoneyToAdd()
+        {
+            Console.WriteLine("Do you have more change to enter?  Press '1' for Yes.  Press '2' for No.");
+            string userSelection = Console.ReadLine();
+            return userSelection;
         }
         public static string SelectSodaToBuy()
         {
