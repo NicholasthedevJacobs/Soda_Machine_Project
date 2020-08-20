@@ -145,6 +145,7 @@ namespace SodaMachineProject
                     Can canToAddToBackpack = sodaMachine.inventory[i];
                     sodaMachine.inventory.RemoveAt(i);
                     AddSodaToBackpack(canToAddToBackpack);
+                    break;
                 }
             }
         }
@@ -174,6 +175,7 @@ namespace SodaMachineProject
                     double remainingBalance = FinishRemainingBalance(amountLeftToPay, valueOfCoin);                   
                     if (remainingBalance < 0)
                     {
+                        DispenseSoda(selectedSoda);
                         double returnChange = CheckIfNegative(remainingBalance);
                         RemoveChangeFromMachine(returnChange);
                     }
