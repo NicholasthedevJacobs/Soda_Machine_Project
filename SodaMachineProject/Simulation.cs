@@ -140,9 +140,18 @@ namespace SodaMachineProject
         {
             customer.wallet.coins.Add(coinReturnToWallet);
         }
-        public void SimulatedCompareToActual ()
+        public void SimulatedCompareToActual (double returnChange)
         {
-            
+            double totalValue = 0;
+            for(int i = 0; i < simulatedCoin.Count; i++)
+            {
+                totalValue += simulatedCoin[i].Value;
+            }          
+            if(totalValue < returnChange)
+            {
+
+            }
+            else
         }
         public double FinishRemainingBalance(double amountLeftToPay, double valueOfCoin)
         {
