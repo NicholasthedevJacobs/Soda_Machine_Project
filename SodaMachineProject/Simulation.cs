@@ -67,7 +67,7 @@ namespace SodaMachineProject
         {
             while (returnChange > 0 && sodaMachine.register.Count > 0)
             {
-                if (returnChange > 0.25)
+                if (returnChange >= 0.25)
                 {
                     for (int i = 0; i < sodaMachine.register.Count; i++)
                     {
@@ -76,12 +76,13 @@ namespace SodaMachineProject
                             Coin coinReturnToWallet = sodaMachine.register[i];
                             sodaMachine.register.RemoveAt(i);
                             ReturnChangeToWallet(coinReturnToWallet);
+                            returnChange -= sodaMachine.register[i].Value;
                             break;
                         }
                         
                     }
                 }
-                if (returnChange > 0.10)
+                if (returnChange >= 0.10)
                 {
                     for (int i = 0; i < sodaMachine.register.Count; i++)
                     {
@@ -90,11 +91,12 @@ namespace SodaMachineProject
                             Coin coinReturnToWallet = sodaMachine.register[i];
                             sodaMachine.register.RemoveAt(i);
                             ReturnChangeToWallet(coinReturnToWallet);
+                            returnChange -= sodaMachine.register[i].Value;
                             break;
                         }
                     }
                 }
-                if (returnChange > 0.05)
+                if (returnChange >= 0.05)
                 {
                     for (int i = 0; i < sodaMachine.register.Count; i++)
                     {
@@ -103,11 +105,12 @@ namespace SodaMachineProject
                             Coin coinReturnToWallet = sodaMachine.register[i];
                             sodaMachine.register.RemoveAt(i);
                             ReturnChangeToWallet(coinReturnToWallet);
+                            returnChange -= sodaMachine.register[i].Value;
                             break;
                         }
                     }
                 }
-                if (returnChange > 0.01)
+                if (returnChange >= 0.01)
                 {
                     for (int i = 0; i < sodaMachine.register.Count; i++)
                     {
@@ -116,10 +119,12 @@ namespace SodaMachineProject
                             Coin coinReturnToWallet = sodaMachine.register[i];
                             sodaMachine.register.RemoveAt(i);
                             ReturnChangeToWallet(coinReturnToWallet);
+                            returnChange -= sodaMachine.register[i].Value;
                             break;
                         }
                     }
                 }
+                break;
             }
         }
         public void ReturnChangeToWallet(Coin coinReturnToWallet)
