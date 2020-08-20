@@ -63,6 +63,24 @@ namespace SodaMachineProject
             double returnChangeAbsolute = Math.Abs(returnChange);
             return returnChangeAbsolute;          
         }
+        public void ReturnMoneyToWallet(double returnChange)
+        {
+            while (returnChange > 0)
+            {
+                if (returnChange > 0.25)
+                {
+                    for (int i = 0; i < sodaMachine.register.Count; i++)
+                    {
+                        if (sodaMachine.register[i].name == "Quarter")
+                        {
+                            sodaMachine.register.RemoveAt(i);
+                        }
+                        
+                    }
+                }
+
+            }
+        }
         public void MasterMethod()
         {
             string selectedSoda = UserInterface.SelectSodaToBuy();
@@ -85,7 +103,11 @@ namespace SodaMachineProject
                     amountLeftToPay = ComparePaidCost(selectedSoda, valueOfCoin);
                     if (amountLeftToPay < 0)
                     {
-                        CheckIfNegative(amountLeftToPay);
+                        double returnChange = CheckIfNegative(amountLeftToPay);
+                    }
+                    else
+                    {
+
                     }
 
                 }
