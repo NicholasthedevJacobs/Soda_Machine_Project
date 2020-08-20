@@ -100,5 +100,9 @@ namespace SodaMachineProject
         {
             Console.WriteLine("Please enter a coin");
         }
+        public static void DisplayOutstandingPayment(double amountLeftToPay)
+        {
+            Console.WriteLine($"You still must pay ${amountLeftToPay} in order to get your beverage.");
+        }
     }
 }

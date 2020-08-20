@@ -58,6 +58,7 @@ namespace SodaMachineProject
             return 0;
 
         }
+        
         public void MasterMethod()
         {
             string selectedSoda = UserInterface.SelectSodaToBuy();
@@ -66,12 +67,14 @@ namespace SodaMachineProject
             string changeSelected = UserInterface.SelectChange();
             double valueOfCoin = CheckHowMuchMoneyEntered(changeSelected);
             double amountLeftToPay = ComparePaidCost(selectedSoda, valueOfCoin);
-            while(amountLeftToPay > 0)
+            Coin payment = customer.RemoveChange(changeSelected);
+            sodaMachine.AddChangePayment(payment);
+            while (amountLeftToPay > 0)
             {
 
             }
-            Coin payment = customer.RemoveChange(changeSelected);
-            sodaMachine.AddChangePayment(payment);
+            //Coin payment = customer.RemoveChange(changeSelected);
+            //sodaMachine.AddChangePayment(payment);
             
         }
 
