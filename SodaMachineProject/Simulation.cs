@@ -148,6 +148,16 @@ namespace SodaMachineProject
         {
             simulatedCoin.Add(payment);
         }
+        public void MoveCoinFromSimulatedToMachine()
+        {
+            for(int i = 0; i < simulatedCoin.Count; i++)
+            {
+                Coin coinReturnToMachine = simulatedCoin[i];
+                simulatedCoin.RemoveAt(i);
+                ReturnChangeToMachine(coinReturnToMachine);
+
+            }
+        }
         public bool SimulatedCompareToActual (double returnChange)
         {
             double totalValue = 0;
@@ -270,6 +280,7 @@ namespace SodaMachineProject
                         valueOfCoin = CheckHowMuchMoneyEntered(changeSelected);
                         payment = customer.RemoveChange(changeSelected);
                         SimulatePaymentTotal(payment);
+                        MoveCoinFromSimulatedToMachine();
                         //Take change from virtual wallet and add to machine
                         double remainingBalance = FinishRemainingBalance(amountLeftToPay, valueOfCoin);
                         if (remainingBalance < 0)
