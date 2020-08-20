@@ -71,6 +71,15 @@ namespace SodaMachineProject
             {
                 UserInterface.DisplayOutstandingPayment(amountLeftToPay);
                 UserInterface.AskToContinueTransaction();
+                string continueTransaction = UserInterface.TakeUserInputForContinue();
+                if (continueTransaction == "1")
+                {
+
+                }
+                else
+                {
+
+                }
             }
             //Coin payment = customer.RemoveChange(changeSelected);
             //sodaMachine.AddChangePayment(payment);
