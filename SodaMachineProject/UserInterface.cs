@@ -52,6 +52,7 @@ namespace SodaMachineProject
         public static void EndMessage()
         {
             Console.WriteLine("Thanks for shopping with us.");
+
         }
         public static bool AskIfHaveMoreMoneyToAdd()
         {
@@ -160,6 +161,10 @@ namespace SodaMachineProject
         public static void DoesNotHaveSodaMessage(string selectedSoda)
         {
             Console.WriteLine("Sorry, we are out of {selectedSoda}.  Your payment will be refunded");
+        }
+        public static void ConsoleReadLine()
+        {
+            Console.ReadLine();
         }
     }
 }

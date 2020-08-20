@@ -278,7 +278,7 @@ namespace SodaMachineProject
             SimulatePaymentTotal(payment);
             //sodaMachine.AddChangePaymentToRegister(payment);
             
-            if (amountLeftToPay > 0)//switched from if to while
+            while (amountLeftToPay > 0)//switched from if to while
             {
                 UserInterface.DisplayOutstandingPayment(amountLeftToPay);
                 //UserInterface.AskToContinueTransaction();
@@ -288,11 +288,12 @@ namespace SodaMachineProject
                     string continueTransaction = UserInterface.TakeUserInputForContinue();
                     if (continueTransaction == "1")
                     {
+                        
                         changeSelected = UserInterface.SelectChange();
                         valueOfCoin = CheckHowMuchMoneyEntered(changeSelected);
                         payment = customer.RemoveChange(changeSelected);
                         SimulatePaymentTotal(payment);
-                        MoveCoinFromSimulatedToMachine();
+                        //MoveCoinFromSimulatedToMachine();
                         //Take change from virtual wallet and add to machine
                         double remainingBalance = FinishRemainingBalance(amountLeftToPay, valueOfCoin);
                         if (remainingBalance < 0)
@@ -318,6 +319,10 @@ namespace SodaMachineProject
                                 GiveFullPaymentBack(remainingBalance, selectedSoda);
                             }
                         }
+                        else
+                        {
+
+                        }
 
                     }
                     else
@@ -328,9 +333,11 @@ namespace SodaMachineProject
                 else
                 {
                     ReturnChangeToUserWhenShort();
+                    UserInterface.EndMessage();
                 }
 
             }
+            UserInterface.ConsoleReadLine();
             
                 //DispenseSoda(selectedSoda);
                 //double returnChange = CheckIfNegative(remainingBalance);
