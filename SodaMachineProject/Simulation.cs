@@ -140,9 +140,9 @@ namespace SodaMachineProject
         {
             customer.wallet.coins.Add(coinReturnToWallet);
         }
-        public void ReturnChangeToMachine(Coin coinReturnToWallet)
+        public void ReturnChangeToMachine(Coin coinReturnToMachine)
         {
-            sodaMachine.register.Add(coinReturnToWallet);
+            sodaMachine.register.Add(coinReturnToMachine);
         }
         public void SimulatePaymentTotal(Coin payment)
         {
@@ -162,9 +162,9 @@ namespace SodaMachineProject
                 {
                     for (int i = 0; i < simulatedCoin.Count; i++)
                     {
-                        Coin coinReturnToWallet = simulatedCoin[i]; ;
+                        Coin coinReturnToMachine = simulatedCoin[i]; ;
                         simulatedCoin.RemoveAt(i);                       
-                        ReturnChangeToMachine(coinReturnToWallet);
+                        ReturnChangeToMachine(coinReturnToMachine);
                         willDispense = false;
                         return willDispense;
                     }
@@ -253,9 +253,10 @@ namespace SodaMachineProject
             double valueOfCoin = CheckHowMuchMoneyEntered(changeSelected);
             double amountLeftToPay = ComparePaidCost(selectedSoda, valueOfCoin);
             Coin payment = customer.RemoveChange(changeSelected);
-            //SimulatePaymentTotal(payment);
-            sodaMachine.AddChangePaymentToRegister(payment);
-            if (amountLeftToPay > 0)
+            SimulatePaymentTotal(payment);
+            //sodaMachine.AddChangePaymentToRegister(payment);
+            
+            while (amountLeftToPay > 0)//switched from if to while
             {
                 UserInterface.DisplayOutstandingPayment(amountLeftToPay);
                 //UserInterface.AskToContinueTransaction();
@@ -267,6 +268,9 @@ namespace SodaMachineProject
                     {
                         changeSelected = UserInterface.SelectChange();
                         valueOfCoin = CheckHowMuchMoneyEntered(changeSelected);
+                        payment = customer.RemoveChange(changeSelected);
+                        SimulatePaymentTotal(payment);
+                        //Take change from virtual wallet and add to machine
                         double remainingBalance = FinishRemainingBalance(amountLeftToPay, valueOfCoin);
                         if (remainingBalance < 0)
                         {
@@ -300,10 +304,13 @@ namespace SodaMachineProject
                 }
 
             }
-            else
-            {
+            
                 DispenseSoda(selectedSoda);
-            }
+                //double returnChange = CheckIfNegative(remainingBalance);
+                ////possibly check if returnChange > 0
+                //RemoveChangeFromMachine(returnChange);
+                //bool willDispense = SimulatedCompareToActual(returnChange);
+            
             
         }
 
