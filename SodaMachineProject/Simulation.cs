@@ -71,7 +71,7 @@ namespace SodaMachineProject
             sodaMachine.AddChangePayment(payment);
             while (amountLeftToPay > 0)
             {
-
+                UserInterface.DisplayOutstandingPayment(amountLeftToPay);
             }
             //Coin payment = customer.RemoveChange(changeSelected);
             //sodaMachine.AddChangePayment(payment);

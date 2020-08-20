@@ -104,5 +104,9 @@ namespace SodaMachineProject
         {
             Console.WriteLine($"You still must pay ${amountLeftToPay} in order to get your beverage.");
         }
+        public static void AskToContinueTransaction()
+        {
+            Console.WriteLine("Would you like to keep adding money, or would you like to cancel the transaction?");
+        }
     }
 }
