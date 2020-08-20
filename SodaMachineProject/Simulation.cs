@@ -201,7 +201,9 @@ namespace SodaMachineProject
             for (int i = 0; i < simulatedCoin.Count; i++)
             {
                 Coin coinReturnToCustomer = simulatedCoin[i];
+                string coinName = simulatedCoin[i].name;
                 simulatedCoin.RemoveAt(i);
+                UserInterface.ChangeReturnMessage(coinName);
                 ReturnChangeToWallet(coinReturnToCustomer);
 
             }
@@ -276,7 +278,7 @@ namespace SodaMachineProject
             SimulatePaymentTotal(payment);
             //sodaMachine.AddChangePaymentToRegister(payment);
             
-            while (amountLeftToPay > 0)//switched from if to while
+            if (amountLeftToPay > 0)//switched from if to while
             {
                 UserInterface.DisplayOutstandingPayment(amountLeftToPay);
                 //UserInterface.AskToContinueTransaction();
@@ -320,17 +322,17 @@ namespace SodaMachineProject
                     }
                     else
                     {
-
+                       
                     }
                 }
                 else
                 {
-
+                    ReturnChangeToUserWhenShort();
                 }
 
             }
             
-                DispenseSoda(selectedSoda);
+                //DispenseSoda(selectedSoda);
                 //double returnChange = CheckIfNegative(remainingBalance);
                 ////possibly check if returnChange > 0
                 //RemoveChangeFromMachine(returnChange);
