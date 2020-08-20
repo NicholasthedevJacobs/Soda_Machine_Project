@@ -56,7 +56,19 @@ namespace SodaMachineProject
                 }
             }
             return 0;
-        }        
+        }
+        public double CheckIfNegative(double returnChange)
+        {
+            if (returnChange < 0)
+            {
+                double returnChangeAbsolute = Math.Abs(returnChange);
+                return returnChangeAbsolute;
+            }
+            else
+            {
+                return 0;
+            }
+        }
         public void MasterMethod()
         {
             string selectedSoda = UserInterface.SelectSodaToBuy();
@@ -74,6 +86,9 @@ namespace SodaMachineProject
                 string continueTransaction = UserInterface.TakeUserInputForContinue();
                 if (continueTransaction == "1")
                 {
+                    changeSelected = UserInterface.SelectChange();
+                    valueOfCoin = CheckHowMuchMoneyEntered(changeSelected);
+                    amountLeftToPay = ComparePaidCost(selectedSoda, valueOfCoin);
 
                 }
                 else
