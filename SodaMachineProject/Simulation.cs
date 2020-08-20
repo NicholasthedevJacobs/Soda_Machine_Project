@@ -75,17 +75,61 @@ namespace SodaMachineProject
                         {
                             Coin coinReturnToWallet = sodaMachine.register[i];
                             sodaMachine.register.RemoveAt(i);
-                            ReturnChangeToWallet(coinReturnToWallet);                            
+                            ReturnChangeToWallet(coinReturnToWallet);
+                            break;
                         }
                         
                     }
                 }
-
+                if (returnChange > 0.10)
+                {
+                    for (int i = 0; i < sodaMachine.register.Count; i++)
+                    {
+                        if (sodaMachine.register[i].name == "Dime")
+                        {
+                            Coin coinReturnToWallet = sodaMachine.register[i];
+                            sodaMachine.register.RemoveAt(i);
+                            ReturnChangeToWallet(coinReturnToWallet);
+                            break;
+                        }
+                    }
+                }
+                if (returnChange > 0.05)
+                {
+                    for (int i = 0; i < sodaMachine.register.Count; i++)
+                    {
+                        if (sodaMachine.register[i].name == "Nickel")
+                        {
+                            Coin coinReturnToWallet = sodaMachine.register[i];
+                            sodaMachine.register.RemoveAt(i);
+                            ReturnChangeToWallet(coinReturnToWallet);
+                            break;
+                        }
+                    }
+                }
+                if (returnChange > 0.01)
+                {
+                    for (int i = 0; i < sodaMachine.register.Count; i++)
+                    {
+                        if (sodaMachine.register[i].name == "Penny")
+                        {
+                            Coin coinReturnToWallet = sodaMachine.register[i];
+                            sodaMachine.register.RemoveAt(i);
+                            ReturnChangeToWallet(coinReturnToWallet);
+                            break;
+                        }
+                    }
+                }
             }
         }
         public void ReturnChangeToWallet(Coin coinReturnToWallet)
         {
             customer.wallet.coins.Add(coinReturnToWallet);
+        }
+        public double FinishRemainingBalance(double amountLeftToPay, double valueOfCoin)
+        {
+            amountLeftToPay -= valueOfCoin;
+            return amountLeftToPay;
         }
         public void MasterMethod()
         {
@@ -106,10 +150,12 @@ namespace SodaMachineProject
                 {
                     changeSelected = UserInterface.SelectChange();
                     valueOfCoin = CheckHowMuchMoneyEntered(changeSelected);
-                    amountLeftToPay = ComparePaidCost(selectedSoda, valueOfCoin);
-                    if (amountLeftToPay < 0)
+                    double remainingBalance = FinishRemainingBalance(amountLeftToPay, valueOfCoin);
+                    //amountLeftToPay = ComparePaidCost(selectedSoda, valueOfCoin);
+                    if (remainingBalance < 0)
                     {
-                        double returnChange = CheckIfNegative(amountLeftToPay);
+                        double returnChange = CheckIfNegative(remainingBalance);
+                        RemoveChangeFromMachine(returnChange);
                     }
                     else
                     {
