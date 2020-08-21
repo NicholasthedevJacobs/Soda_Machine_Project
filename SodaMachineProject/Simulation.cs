@@ -185,11 +185,11 @@ namespace SodaMachineProject
         {
             double totalValue = 0;
             bool willDispense = false;
-            //if (simulatedCoin.Count == 0)
-            //    for (int i = 0; i < simulatedCoin.Count; i++)
-            //    {
-            //        totalValue += simulatedCoin[i].Value;
-            //    }
+
+            for (int i = 0; i < simulatedCoin.Count; i++)
+            {
+                totalValue += simulatedCoin[i].Value;
+            }
             if (totalValue < returnChange)
             {
                 while (simulatedCoin.Count > 0)
@@ -200,7 +200,7 @@ namespace SodaMachineProject
                         simulatedCoin.RemoveAt(i);
                         ReturnChangeToMachine(coinReturnToMachine);
                         willDispense = false;
-                        return willDispense;
+                        
                     }
                 }
             }
@@ -216,9 +216,10 @@ namespace SodaMachineProject
                         ReturnChangeToWallet(coinReturnToWallet);
                         UserInterface.ChangeReturnMessage(nameOfCoin);
                         willDispense = true;
-                        return willDispense;
+                        
                     }
                 }
+                
             }
             return willDispense;
         }
@@ -355,11 +356,12 @@ namespace SodaMachineProject
                             //possibly check if returnChange > 0
                             MoveCoinFromSimulatedToMachine();
                             RemoveChangeFromMachine(returnChange);
-                            MoveCoinFromSimulatedToWallet();
+                            //MoveCoinFromSimulatedToWallet();
                             bool willDispense = SimulatedCompareToActual(returnChange);
                             //MoveCoinFromSimulatedToMachine();
                             if (willDispense == true)
                             {
+                                MoveCoinFromSimulatedToWallet();
                                 DispenseSoda(selectedSoda);
                                 hasPaid = true;
                             }
