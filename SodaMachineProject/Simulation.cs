@@ -37,7 +37,7 @@ namespace SodaMachineProject
                 }
                 else
                 {
-                    i++;
+                    
                 }
             }
             return 0;
@@ -51,7 +51,7 @@ namespace SodaMachineProject
                     double priceOfSoda = sodaMachine.inventory[i].Cost;
                     double amountLeftToPay = priceOfSoda - valueOfCoin;
 
-
+                    amountLeftToPay = Math.Round(amountLeftToPay, 2);
                     return amountLeftToPay;
                 }
                 else
@@ -181,6 +181,10 @@ namespace SodaMachineProject
 
                     }
                 }
+            }
+            else if (simulatedCoin.Count == 0)
+            {
+                willDispense = true;
             }
             else
             {

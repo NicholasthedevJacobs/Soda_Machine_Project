@@ -22,7 +22,7 @@ namespace SodaMachineProject
                 //Console.WriteLine("If you are out of money, press '5' and your change will be returned.");
                 coinToUse = Console.ReadLine();
                 switch (coinToUse)
-                 {
+                {
                     case "1":
                         coinToUse = "Quarter";
                         isValid = true;
@@ -42,7 +42,8 @@ namespace SodaMachineProject
                     default:
                         Console.WriteLine("Please select a valid option.");
                         break;
-                 }
+                }
+                
             }return coinToUse;
         }
         public static void ChangeReturnMessage(string coinReturnToCustomer)
@@ -103,7 +104,11 @@ namespace SodaMachineProject
                         Console.WriteLine("Invalid Selection.  Please choose again.");
                         break;
                 }
-            }return sodaSelected;
+                Console.WriteLine("Hit enter to continue.");
+                Console.ReadLine();               
+                Console.Clear();
+            }
+            return sodaSelected;
 
         }
         public static void DisplaySodaCost(string sodaChosen)
