@@ -70,7 +70,7 @@ namespace SodaMachineProject
         {
             //List<Coin> simulatedCoin = new List<Coin>();
 
-            while (returnChange > 0.01 && sodaMachine.register.Count > 0)
+            while (returnChange > 0.001 && sodaMachine.register.Count > 0)
             {
                 while (returnChange >= 0.25)
                 {
@@ -127,11 +127,11 @@ namespace SodaMachineProject
                         }
                     }
                 }
-                while (returnChange > 0.01)
+                while (returnChange > 0.001)
                 {
                     for (int i = 0; i < sodaMachine.register.Count; i++)
                     {
-                        if (sodaMachine.register[i].name == "Penny" && returnChange >= 0.01)
+                        if (sodaMachine.register[i].name == "Penny" && returnChange >= 0.001)
                         {
                             Coin coinReturnToWallet = sodaMachine.register[i];
                             string coinName = sodaMachine.register[i].name;
@@ -398,8 +398,13 @@ namespace SodaMachineProject
                             }
                         }
                     }
+                    break;
+
                 }
+                break;
+
             }
+            
         }
     }
 }

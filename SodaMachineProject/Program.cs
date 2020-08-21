@@ -14,6 +14,7 @@ namespace SodaMachineProject
             //user.RunMachine();
             Simulation user = new Simulation();
             user.MasterMethod();
+            Console.ReadLine();
 
             //UserInterface.SelectChange();
 
