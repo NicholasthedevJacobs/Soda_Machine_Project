@@ -64,6 +64,7 @@ namespace SodaMachineProject
         public double CheckIfNegative(double returnChange)
         {
             double returnChangeAbsolute = Math.Abs(returnChange);
+            returnChangeAbsolute = Math.Round(returnChangeAbsolute, 2);
             return returnChangeAbsolute;
         }
         public void RemoveChangeFromMachine(double returnChange)
@@ -81,7 +82,8 @@ namespace SodaMachineProject
                             string coinName = sodaMachine.register[i].name;
                             sodaMachine.register.RemoveAt(i);
                             simulatedCoin.Add(coinReturnToWallet);
-                            returnChange -= sodaMachine.register[i].Value;                           
+                            returnChange -= sodaMachine.register[i].Value;
+                            returnChange = Math.Round(returnChange, 2);
                         }
                     }
                 }
@@ -96,6 +98,7 @@ namespace SodaMachineProject
                             sodaMachine.register.RemoveAt(i);
                             simulatedCoin.Add(coinReturnToWallet);                           
                             returnChange -= sodaMachine.register[i].Value;
+                            returnChange = Math.Round(returnChange, 2);
                         }
                     }
                     
@@ -112,11 +115,12 @@ namespace SodaMachineProject
                             sodaMachine.register.RemoveAt(i);
                             simulatedCoin.Add(coinReturnToWallet);
                             returnChange -= sodaMachine.register[i].Value;
-                            
+                            returnChange = Math.Round(returnChange, 2);
+
                         }
                     }
                 }
-                while (returnChange > 0.001)
+                while (returnChange > 0.01)
                 {
                     for (int i = 0; i < sodaMachine.register.Count; i++)
                     {
@@ -127,6 +131,7 @@ namespace SodaMachineProject
                             sodaMachine.register.RemoveAt(i);
                             simulatedCoin.Add(coinReturnToWallet);                           
                             returnChange -= sodaMachine.register[i].Value;
+                            returnChange = Math.Round(returnChange, 2);
                         }                       
                  
                     }
