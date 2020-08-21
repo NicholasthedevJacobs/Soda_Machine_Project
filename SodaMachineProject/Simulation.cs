@@ -167,14 +167,25 @@ namespace SodaMachineProject
 
             }
         }
+        public void MoveCoinFromSimulatedToWallet()
+        {
+            for (int i = 0; i < simulatedCoin.Count; i++)
+            {
+                Coin coinReturnToWallet = simulatedCoin[i];
+                simulatedCoin.RemoveAt(i);
+                ReturnChangeToWallet(coinReturnToWallet);
+
+            }
+        }
         public bool SimulatedCompareToActual(double returnChange)
         {
             double totalValue = 0;
             bool willDispense = false;
-            for (int i = 0; i < simulatedCoin.Count; i++)
-            {
-                totalValue += simulatedCoin[i].Value;
-            }
+            if (simulatedCoin.Count == 0)
+                for (int i = 0; i < simulatedCoin.Count; i++)
+                {
+                    totalValue += simulatedCoin[i].Value;
+                }
             if (totalValue < returnChange)
             {
                 while (simulatedCoin.Count > 0)
@@ -338,9 +349,11 @@ namespace SodaMachineProject
                             //Added lines here
                             double returnChange = CheckIfNegative(amountLeftToPay);
                             //possibly check if returnChange > 0
-                            RemoveChangeFromMachine(returnChange);
-                            bool willDispense = SimulatedCompareToActual(returnChange);
                             MoveCoinFromSimulatedToMachine();
+                            RemoveChangeFromMachine(returnChange);
+                            MoveCoinFromSimulatedToWallet()
+                            bool willDispense = SimulatedCompareToActual(returnChange);
+                            //MoveCoinFromSimulatedToMachine();
                             if (willDispense == true)
                             {
                                 DispenseSoda(selectedSoda);
