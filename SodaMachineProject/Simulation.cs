@@ -272,9 +272,10 @@ namespace SodaMachineProject
         public void MasterMethod()
         {
             bool hasSoda = false;
+            bool hasPaid = false;
             string selectedSoda = UserInterface.SelectSodaToBuy();
             UserInterface.DisplaySodaCost(selectedSoda);
-            UserInterface.InsertMoneyPrompt();
+            //UserInterface.InsertMoneyPrompt();//Not super necessary
             string changeSelected = UserInterface.SelectChange();
             double valueOfCoin = CheckHowMuchMoneyEntered(changeSelected);
             double amountLeftToPay = ComparePaidCost(selectedSoda, valueOfCoin);
