@@ -282,6 +282,16 @@ namespace SodaMachineProject
         {
             customer.backpack.cans.Add(canToAddToBackpack);
         }
+        public bool CheckIfPaid(double amountLeftToPay)
+        {
+            bool hasPaid = false;
+            if (amountLeftToPay < 0)
+            {
+                hasPaid = true;
+                
+            }
+            return hasPaid;
+        }
         public void MasterMethod()
         {
             bool hasSoda = false;
@@ -291,6 +301,12 @@ namespace SodaMachineProject
             //UserInterface.InsertMoneyPrompt();//Not super necessary
             string changeSelected = UserInterface.SelectChange();
             double valueOfCoin = CheckHowMuchMoneyEntered(changeSelected);
+            double amountLeftToPay = ComparePaidCost(selectedSoda, valueOfCoin);
+            
+            while (hasPaid == true)
+            {
+
+            }
             while (hasPaid == false)
             {
                 double amountLeftToPay = ComparePaidCost(selectedSoda, valueOfCoin);
