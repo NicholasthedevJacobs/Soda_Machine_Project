@@ -67,13 +67,5 @@ namespace SodaMachineProject
         {
             register.Add(payment);
         }
-
-
-        //public void RemoveCanSoda(string userChoiceSoda)
-        //{
-
-        //   string userChoice = UserInterface.SelectSodaToBuy();
-        //}
-
     }
 }

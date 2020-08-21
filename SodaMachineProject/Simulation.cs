@@ -68,7 +68,6 @@ namespace SodaMachineProject
         }
         public void RemoveChangeFromMachine(double returnChange)
         {
-            //List<Coin> simulatedCoin = new List<Coin>();
 
             while (returnChange > 0.001 && sodaMachine.register.Count > 0)
             {
@@ -82,10 +81,7 @@ namespace SodaMachineProject
                             string coinName = sodaMachine.register[i].name;
                             sodaMachine.register.RemoveAt(i);
                             simulatedCoin.Add(coinReturnToWallet);
-                            
-                            //ReturnChangeToWallet(coinReturnToWallet);
-                            returnChange -= sodaMachine.register[i].Value;
-                            
+                            returnChange -= sodaMachine.register[i].Value;                           
                         }
                     }
                 }
@@ -98,13 +94,8 @@ namespace SodaMachineProject
                             Coin coinReturnToWallet = sodaMachine.register[i];
                             string coinName = sodaMachine.register[i].name;
                             sodaMachine.register.RemoveAt(i);
-
-                            simulatedCoin.Add(coinReturnToWallet);
-                            
+                            simulatedCoin.Add(coinReturnToWallet);                           
                             returnChange -= sodaMachine.register[i].Value;
-                            //SimulatedReturnChangeToWallet(coinReturnToWallet);  
-
-                           
                         }
                     }
                     
@@ -120,8 +111,6 @@ namespace SodaMachineProject
                             string coinName = sodaMachine.register[i].name;
                             sodaMachine.register.RemoveAt(i);
                             simulatedCoin.Add(coinReturnToWallet);
-                            
-                            //ReturnChangeToWallet(coinReturnToWallet);
                             returnChange -= sodaMachine.register[i].Value;
                             
                         }
@@ -136,9 +125,7 @@ namespace SodaMachineProject
                             Coin coinReturnToWallet = sodaMachine.register[i];
                             string coinName = sodaMachine.register[i].name;
                             sodaMachine.register.RemoveAt(i);
-                            simulatedCoin.Add(coinReturnToWallet);
-                            
-                            //ReturnChangeToWallet(coinReturnToWallet);
+                            simulatedCoin.Add(coinReturnToWallet);                           
                             returnChange -= sodaMachine.register[i].Value;
                         }                       
                  
@@ -210,7 +197,6 @@ namespace SodaMachineProject
 
                     }
                 }
-
             }
             return willDispense;
         }
@@ -223,7 +209,6 @@ namespace SodaMachineProject
                 simulatedCoin.RemoveAt(i);
                 UserInterface.ChangeReturnMessage(coinName);
                 ReturnChangeToWallet(coinReturnToCustomer);
-
             }
         }
         public double FinishRemainingBalance(double amountLeftToPay, double valueOfCoin)
@@ -242,10 +227,6 @@ namespace SodaMachineProject
                     AddSodaToBackpack(canToAddToBackpack);
                     UserInterface.DispenseSodaMessage(selectedSoda);
                     break;
-                }
-                else
-                {
-                    //GiveFullPaymentBack(remainingBalance, selectedSoda);
                 }
             }
         }
@@ -273,11 +254,6 @@ namespace SodaMachineProject
                     hasSoda = true;
                     return hasSoda;
                 }
-                else
-                {
-                    //hasSoda = false;
-                    //UserInterface.DoesNotHaveSodaMessage(selectedSoda);                  
-                }
             }
             return hasSoda;
         }
@@ -301,7 +277,6 @@ namespace SodaMachineProject
             bool hasPaid = false;
             string selectedSoda = UserInterface.SelectSodaToBuy();
             UserInterface.DisplaySodaCost(selectedSoda);
-            //UserInterface.InsertMoneyPrompt();//Not super necessary
             string changeSelected = UserInterface.SelectChange();
             double valueOfCoin = CheckHowMuchMoneyEntered(changeSelected);
             double amountLeftToPay = ComparePaidCost(selectedSoda, valueOfCoin);
@@ -312,7 +287,6 @@ namespace SodaMachineProject
                 if (hasSoda == true)
                 {
                     double returnChange = CheckIfNegative(amountLeftToPay);
-                    //possibly check if returnChange > 0
                     RemoveChangeFromMachine(returnChange);
                     bool willDispense = SimulatedCompareToActual(returnChange);
                     MoveCoinFromSimulatedToMachine();
@@ -326,22 +300,57 @@ namespace SodaMachineProject
                         GiveFullPaymentBack(amountLeftToPay, selectedSoda);
                     }
                 }
-                while (hasPaid == false)
-                {
-                    amountLeftToPay = ComparePaidCost(selectedSoda, valueOfCoin);
-                    Coin payment = customer.RemoveChange(changeSelected);
-                    SimulatePaymentTotal(payment);
+                break;
+            }
+            while (hasPaid == false)
+            {
+                amountLeftToPay = ComparePaidCost(selectedSoda, valueOfCoin);
+                Coin payment = customer.RemoveChange(changeSelected);
+                SimulatePaymentTotal(payment);
 
-                    if (amountLeftToPay <= 0)
+                if (amountLeftToPay <= 0)
+                {
+                    hasSoda = CheckIfSodaStocked(selectedSoda);
+                    if (hasSoda == true)
                     {
-                        hasSoda = CheckIfSodaStocked(selectedSoda);
-                        if (hasSoda == true)
+                        double returnChange = CheckIfNegative(amountLeftToPay);
+                        RemoveChangeFromMachine(returnChange);
+                        bool willDispense = SimulatedCompareToActual(returnChange);
+                        MoveCoinFromSimulatedToMachine();
+                        if (willDispense == true)
                         {
+                            DispenseSoda(selectedSoda);
+                            hasPaid = true;
+                        }
+                        else
+                        {
+                            GiveFullPaymentBack(amountLeftToPay, selectedSoda);
+                        }
+                    }
+                    else
+                    {
+                        GiveFullPaymentBack(amountLeftToPay, selectedSoda);
+                    }
+                }
+                else
+                {
+                    UserInterface.DisplayOutstandingPayment(amountLeftToPay);
+                    bool hasMoney = UserInterface.AskIfHaveMoreMoneyToAdd();
+                    if (hasMoney == true)
+                    {
+                        string continueTransaction = UserInterface.TakeUserInputForContinue();
+                        if (continueTransaction == "1")
+                        {
+
+                            changeSelected = UserInterface.SelectChange();
+                            valueOfCoin = CheckHowMuchMoneyEntered(changeSelected);
+                            payment = customer.RemoveChange(changeSelected);
+                            SimulatePaymentTotal(payment);
+                            amountLeftToPay = FinishRemainingBalance(amountLeftToPay, valueOfCoin);
                             double returnChange = CheckIfNegative(amountLeftToPay);
-                            //possibly check if returnChange > 0
+                            MoveCoinFromSimulatedToMachine();
                             RemoveChangeFromMachine(returnChange);
                             bool willDispense = SimulatedCompareToActual(returnChange);
-                            MoveCoinFromSimulatedToMachine();
                             if (willDispense == true)
                             {
                                 DispenseSoda(selectedSoda);
@@ -356,55 +365,13 @@ namespace SodaMachineProject
                         {
                             GiveFullPaymentBack(amountLeftToPay, selectedSoda);
                         }
-                    }
-                    else
-                    {
-                        UserInterface.DisplayOutstandingPayment(amountLeftToPay);
-                        bool hasMoney = UserInterface.AskIfHaveMoreMoneyToAdd();
-                        if (hasMoney == true)
-                        {
-                            string continueTransaction = UserInterface.TakeUserInputForContinue();
-                            if (continueTransaction == "1")
-                            {
-
-                                changeSelected = UserInterface.SelectChange();
-                                valueOfCoin = CheckHowMuchMoneyEntered(changeSelected);
-                                payment = customer.RemoveChange(changeSelected);
-                                SimulatePaymentTotal(payment);
-                                amountLeftToPay = FinishRemainingBalance(amountLeftToPay, valueOfCoin);
-
-
-                                //Added lines here
-                                double returnChange = CheckIfNegative(amountLeftToPay);
-                                //possibly check if returnChange > 0
-                                MoveCoinFromSimulatedToMachine();
-                                RemoveChangeFromMachine(returnChange);
-                                //MoveCoinFromSimulatedToWallet();
-                                bool willDispense = SimulatedCompareToActual(returnChange);
-                                //MoveCoinFromSimulatedToMachine();
-                                if (willDispense == true)
-                                {
-                                    DispenseSoda(selectedSoda);
-                                    hasPaid = true;
-                                }
-                                else
-                                {
-                                    GiveFullPaymentBack(amountLeftToPay, selectedSoda);
-                                }
-                            }
-                            else
-                            {
-                                GiveFullPaymentBack(amountLeftToPay, selectedSoda);
-                            }
-                        }
-                    }
-                    break;
-
+                    }                   
                 }
                 break;
-
-            }
-            
+            }         
         }
     }
 }
+
+
+
