@@ -82,7 +82,7 @@ namespace SodaMachineProject
                             string coinName = sodaMachine.register[i].name;
                             sodaMachine.register.RemoveAt(i);
                             simulatedCoin.Add(coinReturnToWallet);
-                            UserInterface.ChangeReturnMessage(coinName);
+                            
                             //ReturnChangeToWallet(coinReturnToWallet);
                             returnChange -= sodaMachine.register[i].Value;
                             
@@ -100,7 +100,7 @@ namespace SodaMachineProject
                             sodaMachine.register.RemoveAt(i);
 
                             simulatedCoin.Add(coinReturnToWallet);
-                            UserInterface.ChangeReturnMessage(coinName);
+                            
                             returnChange -= sodaMachine.register[i].Value;
                             //SimulatedReturnChangeToWallet(coinReturnToWallet);  
 
@@ -120,7 +120,7 @@ namespace SodaMachineProject
                             string coinName = sodaMachine.register[i].name;
                             sodaMachine.register.RemoveAt(i);
                             simulatedCoin.Add(coinReturnToWallet);
-                            UserInterface.ChangeReturnMessage(coinName);
+                            
                             //ReturnChangeToWallet(coinReturnToWallet);
                             returnChange -= sodaMachine.register[i].Value;
                             
@@ -137,7 +137,7 @@ namespace SodaMachineProject
                             string coinName = sodaMachine.register[i].name;
                             sodaMachine.register.RemoveAt(i);
                             simulatedCoin.Add(coinReturnToWallet);
-                            UserInterface.ChangeReturnMessage(coinName);
+                            
                             //ReturnChangeToWallet(coinReturnToWallet);
                             returnChange -= sodaMachine.register[i].Value;
                         }                       
